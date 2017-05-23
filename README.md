@@ -23,8 +23,8 @@ dependencies {
 }
 ```
 ### Step 3.
-在布局文件中使用
-```Android
+在布局文件中使用</br>
+```xml
 <pers.liyanijn.pullrefreshlayout.PullRefreshLayout
      android:id="@+id/prl_test"
      android:layout_width="match_parent"
@@ -39,10 +39,8 @@ dependencies {
 
  </pers.liyanijn.pullrefreshlayout.PullRefreshLayout>
 ```
-</br>
-</br>
-PullRefreshLayout有两个自定义属性prl_refreshLayout，prl_loadMoreLayout，可指定下拉刷新的视图和上拉加载的视图，在布局文件中使用方式如下
-```
+PullRefreshLayout有两个自定义属性prl_refreshLayout，prl_loadMoreLayout，可指定下拉刷新的视图和上拉加载的视图，在布局文件中使用方式如下</br>
+```xml
 <pers.liyanijn.pullrefreshlayout.PullRefreshLayout
      android:id="@+id/prl_test"
      android:layout_width="match_parent"
@@ -59,12 +57,12 @@ PullRefreshLayout有两个自定义属性prl_refreshLayout，prl_loadMoreLayout�
 
  </pers.liyanijn.pullrefreshlayout.PullRefreshLayout>
 ```
-也可以通过代码设置如下
-```
+也可以通过代码设置如下</br>
+```java
 pullRefreshLayout.setRefreshView(refreshView);
 pullRefreshLayout.setLoadMoreView(loadMoreView);
 ```
-PullRefreshLayout一共可设置四个监听器
+PullRefreshLayout一共可设置四个监听器</br>
 #### 1.OnRefreshListener
 刷新监听器，通过pullRefreshLayout.setOnRefreshListener方法设置。在准备刷新的时候，调用监听器的onRefresh方法
 #### 2.OnLoadMoreListener
