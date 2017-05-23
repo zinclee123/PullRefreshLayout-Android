@@ -25,7 +25,7 @@ dependencies {
 ### Step 3.
 在布局文件中使用</br>
 ```xml
-<pers.liyanijn.pullrefreshlayout.PullRefreshLayout
+<pers.zinclee123.pullrefreshlayout.PullRefreshLayout
      android:id="@+id/prl_test"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
@@ -37,11 +37,11 @@ dependencies {
          android:layout_height="match_parent"
          android:background="@android:color/white"/>
 
- </pers.liyanijn.pullrefreshlayout.PullRefreshLayout>
+ </pers.zinclee123.pullrefreshlayout.PullRefreshLayout>
 ```
 PullRefreshLayout有两个自定义属性prl_refreshLayout，prl_loadMoreLayout，可指定下拉刷新的视图和上拉加载的视图，在布局文件中使用方式如下</br>
 ```xml
-<pers.liyanijn.pullrefreshlayout.PullRefreshLayout
+<pers.zinclee123.pullrefreshlayout.PullRefreshLayout
      android:id="@+id/prl_test"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
@@ -55,7 +55,7 @@ PullRefreshLayout有两个自定义属性prl_refreshLayout，prl_loadMoreLayout�
          app:prl_refreshLayout="@layout/layout_load_more"
          android:background="@android:color/white"/>
 
- </pers.liyanijn.pullrefreshlayout.PullRefreshLayout>
+ </pers.zinclee123.pullrefreshlayout.PullRefreshLayout>
 ```
 也可以通过代码设置如下</br>
 ```java
