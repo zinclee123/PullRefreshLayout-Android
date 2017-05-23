@@ -171,8 +171,8 @@ public class PullRefreshLayout extends ViewGroup {
 
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PullRefreshLayout);
-        final int refreshLayoutId = a.getResourceId(R.styleable.PullRefreshLayout_refreshLayout, R.layout.prl_layout_refresh);
-        final int loadMoreLayoutId = a.getResourceId(R.styleable.PullRefreshLayout_loadMoreLayout, R.layout.prl_layout_load_more);
+        final int refreshLayoutId = a.getResourceId(R.styleable.PullRefreshLayout_prl_refreshLayout, R.layout.prl_layout_refresh);
+        final int loadMoreLayoutId = a.getResourceId(R.styleable.PullRefreshLayout_prl_loadMoreLayout, R.layout.prl_layout_load_more);
         a.recycle();
 
         mDecelerateInterpolator = new DecelerateInterpolator(DECELERATE_INTERPOLATION_FACTOR);

@@ -2,8 +2,8 @@
 <resources>
 
     <declare-styleable name="PullRefreshLayout">
-        <attr name="refreshLayout" format="reference"/>
-        <attr name="loadMoreLayout" format="reference"/>
+        <attr name="prl_refreshLayout" format="reference"/>
+        <attr name="prl_loadMoreLayout" format="reference"/>
     </declare-styleable>
 
 </resources>
