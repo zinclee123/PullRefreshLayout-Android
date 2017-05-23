@@ -22,6 +22,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile "com.android.support:design:25.3.1"
+    compile 'com.pnikosis:materialish-progress:1.7'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile project(':pullrefreshlayout')

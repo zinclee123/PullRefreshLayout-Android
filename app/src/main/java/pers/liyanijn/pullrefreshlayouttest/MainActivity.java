@@ -6,7 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView refreshTv, loadMoreTv;
 
+    ProgressWheel refreshWheel;
+
     View refreshView, loadMoreView;
 
     @Override
@@ -47,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         refreshView = getLayoutInflater().inflate(R.layout.layout_refresh, pullRefreshLayout, false);
         refreshTv = (TextView) refreshView.findViewById(R.id.tv_refresh);
+        refreshWheel = (ProgressWheel) refreshView.findViewById(R.id.pb_refresh);
+        refreshWheel.setInstantProgress(0.f);
         pullRefreshLayout.setRefreshView(refreshView);
 
 
@@ -62,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
         pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                setRefreshing(true);
 
-                loadMoreTv.setText("上拉加载");
-                strings = new ArrayList<String>();
+                strings = new ArrayList<>();
                 for (int i = 0; i < 4; i++) {
                     strings.add("测试项" + i);
                 }
@@ -77,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void accept(@NonNull Integer integer) throws Exception {
                                 adapter.notifyDataSetChanged();
+                                setRefreshing(false);
                                 pullRefreshLayout.setRefreshing(false);
                             }
                         });
@@ -86,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         pullRefreshLayout.setOnLoadMoreListener(new PullRefreshLayout.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
+                loadMoreTv.setText("正在加载数据");
 
                 int size = strings.size();
                 if (size < 16) {
@@ -105,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                                 pullRefreshLayout.setLoadingMore(false);
                                 if (strings.size() >= 16) {
                                     loadMoreTv.setText("没有更多数据了");
+                                } else {
+                                    loadMoreTv.setText("上拉加载数据");
                                 }
                             }
                         });
@@ -115,16 +126,39 @@ public class MainActivity extends AppCompatActivity {
         pullRefreshLayout.setOnRefreshViewShowListener(new PullRefreshLayout.OnRefreshViewShowListener() {
             @Override
             public void onRefreshViewShow(float percent) {
-                refreshTv.setText("下拉刷新，露出的高度百分比:" + percent);
+                if (percent >= 1.0f) {
+                    refreshTv.setText("松开刷新信息");
+                } else {
+                    refreshTv.setText("下拉刷新信息");
+                }
+
+                percent = percent * 0.6f;
+                if (percent >= 0.7f)
+                    percent = 0.7f;
+                refreshWheel.setInstantProgress(percent);
             }
         });
 
         pullRefreshLayout.setOnLoadMoreViewShowListener(new PullRefreshLayout.OnLoadMoreViewShowListener() {
             @Override
             public void onLoadMoreViewShow(float percent) {
-                loadMoreView.setAlpha(percent);
+                if (percent >= 1.0f) {
+                    loadMoreTv.setText("松开加载信息");
+                } else {
+                    loadMoreTv.setText("上拉加载信息");
+                }
             }
         });
+    }
+
+    protected void setRefreshing(boolean refreshing) {
+        if (refreshing) {
+            refreshTv.setText("正在刷新信息");
+            refreshWheel.spin();
+        } else {
+            refreshTv.setText("下拉刷新信息");
+            refreshWheel.stopSpinning();
+        }
     }
 
     class TestAdapter extends RecyclerView.Adapter<TestViewHolder> {
