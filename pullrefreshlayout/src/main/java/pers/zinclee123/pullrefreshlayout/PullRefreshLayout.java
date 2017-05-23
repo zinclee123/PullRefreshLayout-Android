@@ -1,4 +1,4 @@
-package pers.liyanijn.pullrefreshlayout;
+package pers.zinclee123.pullrefreshlayout;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

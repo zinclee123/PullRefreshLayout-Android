@@ -1,4 +1,4 @@
-package pers.liyanijn.pullrefreshlayouttest;
+package pers.zinclee123.pullrefreshlayouttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pnikosis.materialishprogress.ProgressWheel;
@@ -19,7 +18,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
-import pers.liyanijn.pullrefreshlayout.PullRefreshLayout;
+import pers.zinclee123.pullrefreshlayout.PullRefreshLayout;
+import pers.zinclee123.pullrefreshlayouttest.R;
 
 public class MainActivity extends AppCompatActivity {
 

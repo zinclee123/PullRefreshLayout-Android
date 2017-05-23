@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <pers.liyanijn.pullrefreshlayout.PullRefreshLayout
+    <pers.zinclee123.pullrefreshlayout.PullRefreshLayout
         android:id="@+id/prl_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/white"/>
 
-    </pers.liyanijn.pullrefreshlayout.PullRefreshLayout>
+    </pers.zinclee123.pullrefreshlayout.PullRefreshLayout>
 
 
 </RelativeLayout>
